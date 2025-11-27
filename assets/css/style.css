@@ -45,48 +45,60 @@ nav {
 
 /* HERO */
 .hero {
-  padding: 90px 20px;
+  padding: 120px 20px;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .avatar {
-  width: 140px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border: 3px solid #58a6ff;
 }
 
-.highlight {
-  color: #58a6ff;
+.hero h1 {
+  margin-top: 20px;
+  font-size: 42px;
 }
 
-.btn-primary, .btn-secondary {
-  padding: 10px 20px;
-  border-radius: 6px;
+.hero h2 {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #c9d1d9;
+}
+
+.subtitle {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons {
+  margin-top: 25px;
+}
+
+.social-icons a {
+  margin: 0 12px;
   text-decoration: none;
-  font-weight: 600;
-  color: white;
-  margin: 5px;
-}
-
-.btn-primary {
-  background: #238636;
-}
-
-.btn-secondary {
-  background: #1f6feb;
-}
-
-.section {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: auto;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 32px;
   color: #58a6ff;
+  font-weight: 600;
 }
+
+.social-icons a:hover {
+  color: #1f6feb;
+}
+
 
 /* PROJECTS */
 .project-card {
