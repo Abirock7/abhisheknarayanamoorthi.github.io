@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Splunk Queries | Cybersecurity Portfolio</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Abishek</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="splunk.html">Splunk Queries</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+<h2 class="section-title">🟦 Splunk Detection Queries</h2>
+
+<div class="card">
+  <h3>Brute Force Detection</h3>
+  <pre>index=wineventlog EventCode=4625 | stats count by Account_Name, Workstation_Name</pre>
+</div>
+
+<div class="card">
+  <h3>Suspicious PowerShell Execution</h3>
+  <pre>index=sysmon EventCode=4104 ScriptBlockText="*" | stats count by User, ScriptBlockText</pre>
+</div>
+
+<div class="card">
+  <h3>Ransomware File Activity</h3>
+  <pre>index=sysmon EventCode=11 "*.encrypted" | stats count by TargetFilename</pre>
+</div>
+
+</section>
+
+<footer><p>© 2025</p></footer>
+
+</body>
+</html>
