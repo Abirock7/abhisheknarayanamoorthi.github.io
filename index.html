@@ -7,14 +7,20 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<script src="assets/js/script.js" defer></script>
+
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
 </head>
+<body>
+
+<!-- PARTICLES BACKGROUND -->
 <div id="particles-js"></div>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
 <script>
 particlesJS("particles-js", {
   particles: {
-    number: { value: 80 },
+    number: { value: 90 },
     size: { value: 3 },
     color: { value: "#58a6ff" },
     line_linked: { enable: true, distance: 150, color: "#58a6ff", opacity: 0.4, width: 1 },
@@ -22,7 +28,6 @@ particlesJS("particles-js", {
   }
 });
 </script>
-<body>
 
 <!-- NAVIGATION -->
 <header>
@@ -62,9 +67,9 @@ particlesJS("particles-js", {
 <section id="about" class="section">
   <h2 class="section-title">About Me</h2>
 
-  <p>I am a cybersecurity graduate student at Saint Louis University with hands-on experience in SOC operations, threat detection, network security, vulnerability management, and AI-driven security automation. I specialize in identifying malicious behaviors using SIEM tools, analyzing attack patterns, and developing security workflows that strengthen organizational defense. My work spans blue-team monitoring, CTFs, penetration testing labs, and AI automation projects.</p>
+  <p>I am a cybersecurity graduate student at Saint Louis University with hands-on experience in SOC operations, threat detection, network security, vulnerability management, and AI-driven security automation. I specialize in analyzing malicious behaviors, building detections, and strengthening enterprise defense capabilities.</p>
 
-  <p>Recognized globally with scholarships like Authenticate 2025 (Top 3 worldwide) and Black Hat USA 2025, I actively build security tools and detections that align with MITRE ATT&CK and modern threat landscapes.</p>
+  <p>Recognized globally with scholarships like Authenticate 2025 (Top 3 Worldwide) and Black Hat USA 2025, I actively build tools and workflows using MITRE ATT&CK, SIEM analytics, and automation pipelines.</p>
 </section>
 
 <!-- SKILLS SECTION -->
@@ -80,22 +85,22 @@ particlesJS("particles-js", {
 
     <div class="skill-card">
       <h3>Technical Tools</h3>
-      <p>Splunk, Wazuh, Wireshark, Burp Suite, Metasploit, Nessus, Docker</p>
+      <p>Splunk, Wazuh, Wireshark, Burp Suite, Metasploit, Docker</p>
     </div>
 
     <div class="skill-card">
       <h3>Programming</h3>
-      <p>Python, Bash, MySQL</p>
+      <p>Python, Bash, SQL</p>
     </div>
 
     <div class="skill-card">
       <h3>AI & Automation</h3>
-      <p>LLM Integration, JSON Automation, AI-based Security Triage</p>
+      <p>LLM Integration, JSON Automation, Python Pipelines</p>
     </div>
 
     <div class="skill-card">
       <h3>Domains</h3>
-      <p>SOC Analysis, DFIR, Threat Detection, Network Security</p>
+      <p>DFIR, Threat Detection, Network Security</p>
     </div>
 
   </div>
@@ -107,24 +112,24 @@ particlesJS("particles-js", {
 
   <div class="project-card">
     <h3>🔵 AI One-Click Security Triage Tool</h3>
-    <p>A fully automated triage pipeline integrating Nmap → JSON → LLM → dashboard. This tool streamlines vulnerability detection and generates AI-driven severity insights.</p>
+    <p>Automated pipeline integrating Nmap → JSON → LLM → dashboard insights. Designed to speed up vulnerability triage with AI-driven severity reasoning.</p>
     <a href="https://github.com/Abirock7/ai-triage" target="_blank" class="project-link">View Project →</a>
   </div>
 
   <div class="project-card">
     <h3>🟦 Splunk Detection Engineering</h3>
-    <p>Created SPL-based threat detections, dashboards monitoring Sysmon logs, failed login patterns, PowerShell execution, ransomware indicators, and mapped alerts to MITRE ATT&CK.</p>
+    <p>Custom SPL detections for Sysmon, credential abuse, ransomware behavior, PowerShell events, and attacker TTP mapping aligned with MITRE ATT&CK.</p>
   </div>
 
   <div class="project-card">
     <h3>🔥 NCL & CTF Writeups</h3>
-    <p>Ranked Top 124/8573 in NCL (Fall 2025). Documented exploitation steps, log analysis, and threat-hunting approaches.</p>
+    <p>Ranked Top 124 in NCL Fall 2025. Detailed writeups covering exploitation, OSINT, network forensics, and SOC-style threat analysis.</p>
     <a href="https://medium.com/@abishekmoorthi711" target="_blank" class="project-link">View Writeups →</a>
   </div>
 
 </section>
 
-<!-- CONTACT SECTION -->
+<!-- CONTACT -->
 <section id="contact" class="section">
   <h2 class="section-title">Contact</h2>
 
@@ -137,7 +142,6 @@ particlesJS("particles-js", {
 
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 Abishek Narayanamoorthi • Cybersecurity Portfolio</p>
 </footer>
