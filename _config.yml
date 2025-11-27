@@ -4,17 +4,30 @@ description: "Portfolio showcasing my cybersecurity projects, SOC dashboards, LL
 url: "https://abhisheknarayanamoorthi.github.io"
 baseurl: ""
 
-theme: minimal-mistakes-jekyll
-remote_theme: "mmistakes/minimal-mistakes"
+# THE FIX → Use remote_theme (GitHub supported)
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
-# Navigation
-collections:
-  projects:
-    output: true
-  writeups:
-    output: true
+plugins:
+  - jekyll-include-cache
 
-# Default Settings
+# Enable theme features
+markdown: kramdown
+
+# Author Info
+author:
+  name: "Abishek Narayanamoorthi"
+  avatar: "/assets/img/profile.jpg"
+  bio: "SOC Analyst | Threat Hunter | AI Security Engineer"
+  email: "abisheknarayanamoorthi0218@gmail.com"
+  links:
+    - label: "LinkedIn"
+      url: "https://linkedin.com"
+    - label: "GitHub"
+      url: "https://github.com/abhisheknarayanamoorthi"
+    - label: "Medium"
+      url: "https://medium.com"
+
+# Default front matter
 defaults:
   - scope:
       path: ""
@@ -22,19 +35,3 @@ defaults:
     values:
       layout: single
       author_profile: true
-
-author:
-  name: "Abishek Narayanamoorthi"
-  avatar: "/assets/img/profile.jpg"
-  bio: "SOC Analyst | Threat Hunter | AI Security Engineer | Cybersecurity Graduate Student at SLU"
-  email: "abisheknarayanamoorthi0218@gmail.com"
-  links:
-    - label: "LinkedIn"
-      url: "https://linkedin.com"
-    - label: "Medium"
-      url: "https://medium.com"
-    - label: "GitHub"
-      url: "https://github.com/abhisheknarayanamoorthi"
-
-# Build Settings
-markdown: kramdown
