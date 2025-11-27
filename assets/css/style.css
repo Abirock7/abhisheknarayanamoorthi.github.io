@@ -5,6 +5,13 @@ body {
   color: #c9d1d9;
   scroll-behavior: smooth;
 }
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #0d1117;
+  z-index: 0;
+}
 
 /* NAVIGATION */
 header {
