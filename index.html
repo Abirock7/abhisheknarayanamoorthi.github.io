@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abishek Narayanamoorthi | Cybersecurity Analyst Portfolio</title>
+    <title>Abishek Narayanamoorthi | Cybersecurity Engineer</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,190 +13,201 @@
     <!-- AOS Animations -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <!-- Particles -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
 <body>
 
-<!-- ========================= PRELOADER ========================= -->
+<!-- ================= PRELOADER ================= -->
 <div id="preloader">
-    <div class="loader-text">
-        Initializing SOC Systems… <br>
-        Loading Threat Intelligence Modules…
-    </div>
+    <p>Initializing SOC Systems…</p>
+    <p>Loading Threat Intelligence Modules…</p>
+    <div class="loader"></div>
 </div>
 
-<!-- ========================= NAVBAR ========================= -->
+<!-- ================= NAVBAR ================= -->
 <header>
     <div class="logo">Abishek</div>
-
-    <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#contact">Contact</a>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Dark/Light Toggle -->
-    <div id="theme-toggle" class="theme-toggle">
-        <i class="fa-solid fa-sun"></i>
+    <!-- DARK/LIGHT TOGGLE -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fa-solid fa-moon"></i>
     </div>
 </header>
 
-<!-- ========================= PARTICLES BACKGROUND ========================= -->
+<!-- PARTICLES BACKGROUND -->
 <div id="particles-js"></div>
 
-<!-- ========================= HERO ========================= -->
+<!-- ================= HERO ================= -->
 <section id="home" class="hero">
-    <img src="PROFILE.jpg" alt="Profile Picture" class="avatar" data-aos="fade-up">
+    <img src="PROFILE.jpg" class="avatar" alt="Profile">
 
-    <h1 data-aos="fade-up" data-aos-delay="150">
-        Hi, I'm <span class="highlight">Abishek Narayanamoorthi</span>
-    </h1>
-
+    <h1 data-aos="fade-up">Hi, I'm <span class="highlight">Abishek Narayanamoorthi</span></h1>
     <h2 data-aos="fade-up" data-aos-delay="200">
         Cybersecurity Analyst • Threat Detection • Blue-Team Defense & Automation
     </h2>
 
-    <p class="subtitle" data-aos="fade-up" data-aos-delay="250">
-        SOC Operations • SIEM • DFIR • Automation • Threat Hunting
+    <p class="subtitle" data-aos="fade-up" data-aos-delay="300">
+        Threat Detection • DFIR • SOC Operations • Security Automation
     </p>
 
-    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
         <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="resume.pdf" class="btn-secondary" download>Download Resume</a>
+        <a href="resume.pdf" download class="btn-secondary">Download Resume</a>
     </div>
 
-    <div class="social-icons" data-aos="fade-up" data-aos-delay="350">
-        <a href="https://www.linkedin.com/in/abishek-narayanamoorthi-baa59b1aa/" target="_blank">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://medium.com/@abishekmoorthi711" target="_blank">
-            <i class="fa-solid fa-file-lines"></i>
-        </a>
-        <a href="https://github.com/Abirock7" target="_blank">
-            <i class="fab fa-github"></i>
-        </a>
+    <div class="social-icons" data-aos="fade-up" data-aos-delay="500">
+        <a href="https://www.linkedin.com/in/abishek-narayanamoorthi-baa59b1aa" target="_blank">LinkedIn</a>
+        <a href="https://medium.com/@abishekmoorthi711" target="_blank">Medium</a>
+        <a href="https://github.com/Abirock7" target="_blank">GitHub</a>
     </div>
 </section>
 
-<!-- ========================= ABOUT ========================= -->
+
+<!-- ================= ABOUT ================= -->
 <section id="about" class="section">
-    <h2 class="section-title" data-aos="fade-up">About Me</h2>
-
+    <h2 class="section-title">About Me</h2>
     <p data-aos="fade-up">
-        I am a cybersecurity graduate with hands-on experience in SOC operations, threat detection,
-        SIEM engineering, and DFIR. I specialize in identifying security incidents, analyzing logs,
-        detecting attacker behavior patterns, and designing AI-assisted automation to improve response time.
-    </p>
-
-    <p data-aos="fade-up" data-aos-delay="150">
-        My workflows involve Blue-Team methodologies, Python-based automation, MITRE ATT&CK mapping,
-        and building detection logic for enterprise-scale environments.
+        I am a cybersecurity graduate student at Saint Louis University with hands-on experience in 
+        SOC operations, threat detection, network security, vulnerability management, and AI-driven security automation.
+        I specialize in identifying malicious behaviors using SIEM tools, analyzing attack patterns, and 
+        developing security workflows that strengthen enterprise defenses.
     </p>
 </section>
 
-<!-- ========================= SKILLS ========================= -->
+<!-- ================= SKILLS ================= -->
 <section id="skills" class="section">
-    <h2 class="section-title" data-aos="fade-up">Skills</h2>
-
+    <h2 class="section-title">Skills</h2>
     <div class="skills-grid">
-        <div class="skill-card" data-aos="zoom-in">Threat Detection & Hunting</div>
-        <div class="skill-card" data-aos="zoom-in">SOC Operations</div>
-        <div class="skill-card" data-aos="zoom-in">SIEM (Splunk, QRadar, Elastic)</div>
-        <div class="skill-card" data-aos="zoom-in">Incident Response & DFIR</div>
-        <div class="skill-card" data-aos="zoom-in">Python Automation</div>
-        <div class="skill-card" data-aos="zoom-in">MITRE ATT&CK Mapping</div>
+        <div class="skill-card" data-aos="fade-up">SIEM (Splunk, QRadar, Sentinel)</div>
+        <div class="skill-card" data-aos="fade-up">Threat Detection & Hunting</div>
+        <div class="skill-card" data-aos="fade-up">Endpoint Security</div>
+        <div class="skill-card" data-aos="fade-up">Network Security</div>
+        <div class="skill-card" data-aos="fade-up">Python Automation</div>
+        <div class="skill-card" data-aos="fade-up">DFIR</div>
     </div>
 </section>
 
-<!-- ========================= PROJECTS ========================= -->
+<!-- ================= PROJECTS ================= -->
 <section id="projects" class="section">
-    <h2 class="section-title" data-aos="fade-up">Projects</h2>
+    <h2 class="section-title">Projects</h2>
 
     <div class="project-card" data-aos="fade-up">
         <h3>AI One-Click Security Triage Tool</h3>
-        <p>Automates Nmap → JSON → CVSS → AI Risk Evaluation with dashboards.</p>
-        <a href="https://github.com/Abirock7/ai-triage" class="btn-primary" target="_blank">View Project</a>
+        <p>Automated Nmap → JSON → AI CVSS scoring → Dashboard.  
+           Built using Python, Docker, LLMs.</p>
+        <a href="https://github.com/Abirock7/ai-triage" target="_blank" class="btn-primary">View Project</a>
     </div>
 
     <div class="project-card" data-aos="fade-up">
         <h3>Splunk Detection Engineering</h3>
-        <p>Developed SPL-based detections for malware, persistence, C2 activity, and privilege escalation.</p>
+        <p>Writing SPL for brute force, C2 beaconing, privilege escalation, and exfiltration use-cases.</p>
     </div>
 
     <div class="project-card" data-aos="fade-up">
-        <h3>CTF / NCL Writeups</h3>
-        <p>Documented DFIR, OSINT, networking & crypto challenges on Medium.</p>
-        <a href="https://medium.com/@abishekmoorthi711" class="btn-primary" target="_blank">Read Writeups</a>
+        <h3>NCL + CTF Write-Ups</h3>
+        <p>Reverse engineering, forensics, web exploitation, OSINT, and crypto challenges.</p>
+        <a href="https://medium.com/@abishekmoorthi711" target="_blank" class="btn-secondary">Read Writeups</a>
     </div>
 </section>
 
-<!-- ========================= CERTIFICATIONS ========================= -->
+<!-- ================= CERTIFICATIONS ================= -->
 <section id="certifications" class="section">
-    <h2 class="section-title" data-aos="fade-up">Certifications</h2>
+    <h2 class="section-title">Certifications</h2>
 
     <div class="cert-grid">
-        <div class="cert-card" data-aos="fade-up">Google Cybersecurity Certificate</div>
-        <div class="cert-card" data-aos="fade-up">Google Cybersecurity Badge</div>
-        <div class="cert-card" data-aos="fade-up">Google Data Analytics Badge</div>
-        <div class="cert-card" data-aos="fade-up">TryHackMe Certificate 1</div>
-        <div class="cert-card" data-aos="fade-up">TryHackMe Certificate 2</div>
+
+        <div class="cert-card" data-aos="fade-up">
+            <h3>Google Cybersecurity Professional</h3>
+            <a href="google cybersecurity professional.pdf" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up">
+            <h3>Google Cybersecurity Badge</h3>
+            <a href="GoogleCybersecurityCertificateV2_Badge20250316-26-v1jor9.pdf" target="_blank">View Badge</a>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up">
+            <h3>Google Data Analytics Badge</h3>
+            <a href="GoogleDataAnalyticsProfessionalCertificate_Badge.pdf" target="_blank">View Badge</a>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up">
+            <h3>TryHackMe Certification (1)</h3>
+            <a href="tryhackme1.pdf" target="_blank">View Certificate</a>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up">
+            <h3>TryHackMe Certification (2)</h3>
+            <a href="tryhackme2.pdf" target="_blank">View Certificate</a>
+        </div>
     </div>
 </section>
 
-<!-- ========================= TIMELINE ========================= -->
+<!-- ================= TIMELINE ================= -->
 <section id="timeline" class="section">
-    <h2 class="section-title" data-aos="fade-up">Timeline</h2>
+    <h2 class="section-title">Professional Timeline</h2>
 
-    <div class="timeline-container">
-        <div class="timeline-item" data-aos="fade-right">
-            <h3>2025</h3>
-            <p>Advanced Blue-Team Projects & AI-Automation Tools</p>
+    <div class="timeline">
+
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>2025</h3>
+                <p>AI Security Triage Tool + SOC Projects</p>
+            </div>
         </div>
 
         <div class="timeline-item" data-aos="fade-right">
-            <h3>2024</h3>
-            <p>Cybersecurity Graduate — Saint Louis University</p>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>2024</h3>
+                <p>Google Cybersecurity Certification + NCL Challenges</p>
+            </div>
         </div>
 
-        <div class="timeline-item" data-aos="fade-right">
-            <h3>2023</h3>
-            <p>CTF / NCL Competitor (OSINT, DFIR, Crypto)</p>
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>2023</h3>
+                <p>Started Cybersecurity Journey</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ========================= CONTACT ========================= -->
+<!-- ================= CONTACT ================= -->
 <section id="contact" class="section">
-    <h2 class="section-title" data-aos="fade-up">Contact</h2>
+    <h2 class="section-title">Contact</h2>
 
     <form id="contactForm" data-aos="fade-up">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="email" id="email" placeholder="Email Address" required>
-        <input type="text" id="subject" placeholder="Subject" required>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
         <textarea id="message" placeholder="Your Message" required></textarea>
-
-        <button type="submit" class="btn-primary">
-            Send Message
-        </button>
+        <button type="submit" class="btn-primary">Send Message</button>
     </form>
-
-    <p>Email: <strong>abisheknarayanamoorthi0218@gmail.com</strong></p>
 </section>
 
-<!-- ========================= FOOTER ========================= -->
+<!-- FOOTER -->
 <footer>
-    © 2025 Abishek Narayanamoorthi — Cybersecurity Portfolio
+    <p>© 2025 Abishek Narayanamoorthi. All rights reserved.</p>
 </footer>
 
-<!-- JS -->
+<script src="assets/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="script.js"></script>
+<script>AOS.init();</script>
 
 </body>
 </html>
