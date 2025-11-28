@@ -1,341 +1,362 @@
-/* ===========================
+/* ------------------------------
    GLOBAL STYLES
-   =========================== */
+------------------------------ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    background: #050A18;
-    color: white;
-    overflow-x: hidden;
-    transition: background 0.3s, color 0.3s;
+    background: #0d0f16;
+    color: #e4e7ef;
+    transition: background 0.4s, color 0.4s;
 }
 
-.light-mode {
-    background: #f4f4f4;
-    color: #222;
+.light-theme {
+    background: #ffffff;
+    color: #111;
 }
 
-/* ===========================
-   PARTICLES BACKDROP
-   =========================== */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-}
-
-/* ===========================
-   NAVBAR
-   =========================== */
-header {
-    width: 100%;
+/* ------------------------------
+   PRELOADER
+------------------------------ */
+#preloader {
     position: fixed;
     top: 0;
-    z-index: 1000;
-    padding: 18px 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d0f16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    animation: fadeOut 1.5s ease-out forwards;
+    animation-delay: 2.2s;
+}
+
+.loader-text {
+    color: #6bb6ff;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* ------------------------------
+   NAVBAR
+------------------------------ */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(5, 10, 24, 0.7);
-    backdrop-filter: blur(8px);
-    transition: padding 0.3s;
+    background: rgba(10, 12, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1a1f2e;
+    z-index: 1000;
+    transition: 0.3s ease;
 }
 
 header.shrink {
-    padding: 10px 50px;
-    background: rgba(5, 10, 24, 0.9);
+    padding: 8px 50px;
+    background: rgba(10, 12, 20, 0.95);
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #4aa3ff;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 28px;
+    font-size: 28px;
+    color: #6bb6ff;
+    font-weight: 600;
 }
 
 .nav-links a {
+    margin-left: 25px;
+    color: #e4e7ef;
     text-decoration: none;
-    color: #4aa3ff;
     font-weight: 500;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .nav-links a:hover {
-    color: #85c3ff;
+    color: #6bb6ff;
 }
 
-/* DARK/LIGHT TOGGLE */
 .theme-toggle {
     cursor: pointer;
-    font-size: 22px;
-    color: #4aa3ff;
+    margin-left: 20px;
+    font-size: 20px;
 }
 
-.light-mode .theme-toggle {
-    color: #333;
+.theme-toggle i {
+    color: #6bb6ff;
 }
 
-/* ===========================
+/* ------------------------------
+   PARTICLES BACKGROUND
+------------------------------ */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* ------------------------------
    HERO SECTION
-   =========================== */
+------------------------------ */
 .hero {
     padding-top: 160px;
     text-align: center;
-    padding-bottom: 100px;
+    padding-bottom: 130px;
 }
 
 .avatar {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 4px solid #4aa3ff;
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    border: 4px solid #6bb6ff;
     object-fit: cover;
-    box-shadow: 0 0 15px #4aa3ff;
-}
-
-.highlight {
-    color: #4aa3ff;
-}
-
-.subtitle {
-    color: #bfc8d6;
-    margin-bottom: 20px;
-}
-
-.hero-buttons a {
-    display: inline-block;
-    margin: 10px;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.btn-primary {
-    background: #1fd87e;
-    color: black;
-}
-
-.btn-secondary {
-    background: #1f3a93;
-    color: white;
-}
-
-.social-icons i {
-    font-size: 32px;
-    margin: 10px;
-    color: #4aa3ff;
-    transition: 0.3s;
-}
-
-.social-icons i:hover {
-    color: #8fc7ff;
-}
-
-/* ===========================
-   SECTION BASE
-   =========================== */
-.section {
-    padding: 100px 14%;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 34px;
-    margin-bottom: 30px;
-    color: #4aa3ff;
-}
-
-/* ===========================
-   SKILLS SECTION
-   =========================== */
-.skills-container {
-    max-width: 700px;
-    margin: auto;
-}
-
-.skill-bar {
-    text-align: left;
     margin-bottom: 25px;
 }
 
-.skill-bar span {
-    font-size: 18px;
+.highlight {
+    color: #6bb6ff;
 }
 
-.bar {
-    margin-top: 8px;
-    width: 100%;
-    height: 10px;
-    border-radius: 8px;
-    background: rgba(0, 140, 255, 0.2);
-    position: relative;
-}
-
-.bar.neon::after {
-    content: "";
-    position: absolute;
-    width: 90%;
-    height: 100%;
-    background: linear-gradient(90deg, #007bff, #4aa3ff);
-    border-radius: 8px;
-    animation: glow 2s infinite;
-}
-
-@keyframes glow {
-    0% { box-shadow: 0 0 10px #4aa3ff; }
-    50% { box-shadow: 0 0 20px #4aa3ff; }
-    100% { box-shadow: 0 0 10px #4aa3ff; }
-}
-
-/* ===========================
-   PROJECT CARDS
-   =========================== */
-.project-card {
-    background: rgba(255,255,255,0.06);
-    padding: 25px;
-    margin: 20px auto;
-    max-width: 780px;
-    border-radius: 12px;
-    border: 1px solid #4aa3ff;
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 12px #4aa3ff;
-}
-
-/* ===========================
-   CERTIFICATIONS GRID
-   =========================== */
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.cert-card {
-    border: 1px solid #4aa3ff;
-    padding: 25px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.05);
-    transition: 0.3s;
-}
-
-.cert-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 12px #4aa3ff;
-}
-
-.cert-card h3 {
-    margin-bottom: 15px;
-}
-
-/* ===========================
-   TIMELINE (HORIZONTAL)
-   =========================== */
-.timeline {
-    display: flex;
-    justify-content: space-between;
-    gap: 22px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.timeline-step {
-    flex: 1;
-    min-width: 180px;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid #4aa3ff;
-}
-
-.step-icon {
-    font-size: 36px;
+.hero h1 {
+    font-size: 38px;
     margin-bottom: 10px;
 }
 
-/* ===========================
-   CONTACT FORM
-   =========================== */
+.hero h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #b8bfd1;
+}
+
+.subtitle {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #9aa3b8;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 8px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: #2dbb72;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #26a664;
+}
+
+.btn-secondary {
+    border: 2px solid #6bb6ff;
+    color: #6bb6ff;
+}
+
+.btn-secondary:hover {
+    background: #6bb6ff;
+    color: #0d0f16;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #6bb6ff;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------
+   SECTION BASE
+------------------------------ */
+.section {
+    text-align: center;
+    padding: 100px 15%;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #6bb6ff;
+}
+
+/* ------------------------------
+   SKILLS SECTION
+------------------------------ */
+.skills-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: #121621;
+    padding: 18px;
+    border-radius: 8px;
+    border-left: 4px solid #6bb6ff;
+    text-align: left;
+    font-weight: 500;
+}
+
+.light-theme .skill-card {
+    background: #f3f3f3;
+    border-left-color: #0070ff;
+}
+
+/* ------------------------------
+   PROJECTS
+------------------------------ */
+.project-card {
+    background: #121621;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.project-card h3 {
+    color: #6bb6ff;
+    margin-bottom: 10px;
+}
+
+.light-theme .project-card {
+    background: #ededed;
+}
+
+/* ------------------------------
+   CERTIFICATIONS
+------------------------------ */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.cert-card {
+    background: #121621;
+    padding: 18px;
+    border-radius: 10px;
+    border-left: 4px solid #6bb6ff;
+    text-align: left;
+}
+
+.light-theme .cert-card {
+    background: #fafafa;
+}
+
+/* ------------------------------
+   TIMELINE
+------------------------------ */
+.timeline-container {
+    border-left: 3px solid #6bb6ff;
+    padding-left: 25px;
+    margin-top: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+}
+
+.timeline-item h3 {
+    color: #6bb6ff;
+    margin-bottom: 5px;
+}
+
+/* ------------------------------
+   CONTACT
+------------------------------ */
 #contactForm {
-    max-width: 650px;
-    margin: 30px auto;
+    margin: auto;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    gap: 14px;
 }
 
 #contactForm input,
 #contactForm textarea {
     padding: 12px;
-    border-radius: 8px;
+    margin: 10px 0;
+    background: #121621;
     border: none;
-    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
     color: white;
 }
 
-#contactForm button {
-    background: #1fd87e;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+#contactForm textarea {
+    height: 120px;
 }
 
-/* LIGHT MODE FIXES */
-.light-mode header {
-    background: rgba(255,255,255,0.8);
+.light-theme #contactForm input,
+.light-theme #contactForm textarea {
+    background: #ececec;
+    color: #222;
 }
 
-.light-mode .section-title,
-.light-mode .logo {
-    color: #004b9a;
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    background: #10131c;
+    color: #6bb6ff;
 }
 
-.light-mode .btn-secondary {
-    background: #004b9a;
-}
-
-.light-mode .cert-card,
-.light-mode .timeline-step,
-.light-mode .project-card {
-    background: white;
-    color: black;
-    border-color: #004b9a;
-}
-
-/* ===========================
+/* ------------------------------
    RESPONSIVE
-   =========================== */
+------------------------------ */
 @media (max-width: 768px) {
     header {
-        padding: 15px 30px;
+        padding: 15px 20px;
     }
 
-    .nav-links {
-        display: none;
+    .nav-links a {
+        margin-left: 15px;
     }
 
-    .timeline {
-        flex-direction: column;
+    .section {
+        padding: 80px 8%;
     }
 
-    .timeline-step {
-        margin-bottom: 20px;
+    #contactForm {
+        width: 90%;
     }
 }
