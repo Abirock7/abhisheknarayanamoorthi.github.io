@@ -1,100 +1,125 @@
-/* ===========================
-   PARTICLES JS
-   =========================== */
+/* ============================================================
+   PRELOADER
+============================================================ */
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        const preloader = document.getElementById("preloader");
+        if (preloader) preloader.style.display = "none";
+    }, 2000);
+});
+
+
+/* ============================================================
+   NAVBAR SHRINK ON SCROLL
+============================================================ */
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.classList.add("shrink");
+    } else {
+        header.classList.remove("shrink");
+    }
+});
+
+
+/* ============================================================
+   DARK / LIGHT THEME TOGGLE
+============================================================ */
+const themeToggleBtn = document.getElementById("theme-toggle");
+const root = document.body;
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+        root.classList.toggle("light-theme");
+
+        // Change icon
+        if (root.classList.contains("light-theme")) {
+            themeToggleBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+        } else {
+            themeToggleBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+        }
+    });
+}
+
+
+/* ============================================================
+   PARTICLES.JS INITIALIZATION
+============================================================ */
 particlesJS("particles-js", {
     particles: {
-        number: { value: 85 },
+        number: { value: 80 },
+        color: { value: "#6bb6ff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
         size: { value: 3 },
-        color: { value: "#4aa3ff" },
         line_linked: {
             enable: true,
-            distance: 140,
-            color: "#4aa3ff",
-            opacity: 0.35,
-            width: 1
+            color: "#6bb6ff",
+            opacity: 0.3
         },
-        move: { speed: 2 }
+        move: {
+            enable: true,
+            speed: 2
+        }
     },
     interactivity: {
         events: {
-            onhover: { enable: true, mode: "grab" }
+            onhover: { enable: true, mode: "repulse" }
         }
     }
 });
 
 
-/* ===========================
-   AOS (Animate On Scroll)
-   =========================== */
-AOS.init({
-    duration: 900,
-    offset: 120,
-    once: true
-});
+/* ============================================================
+   EMAILJS CONTACT FORM HANDLER
+============================================================ */
 
+// Replace with your actual IDs
+const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 
-/* ===========================
-   NAVBAR SHRINK ON SCROLL
-   =========================== */
-const navbar = document.getElementById("navbar");
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 60) {
-        navbar.classList.add("shrink");
-    } else {
-        navbar.classList.remove("shrink");
-    }
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
 
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-/* ===========================
-   DARK / LIGHT MODE TOGGLE
-   =========================== */
-const themeToggle = document.getElementById("theme-icon");
+            const formData = {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                subject: document.getElementById("subject").value,
+                message: document.getElementById("message").value
+            };
 
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-
-    if (document.body.classList.contains("light-mode")) {
-        themeToggle.classList.remove("ri-moon-fill");
-        themeToggle.classList.add("ri-sun-fill");
-    } else {
-        themeToggle.classList.remove("ri-sun-fill");
-        themeToggle.classList.add("ri-moon-fill");
-    }
-});
-
-
-/* ===========================
-   EMAILJS CONTACT FORM
-   =========================== */
-
-/* You MUST replace the placeholders below: 
-   emailjs.init("YOUR_PUBLIC_KEY");
-   emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
-*/
-
-(function () {
-    emailjs.init("YOUR_PUBLIC_KEY_HERE");  // <-- Replace with YOUR EmailJS Public Key
-})();
-
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const params = {
-        from_name: document.getElementById("name").value,
-        user_email: document.getElementById("email").value,
-        message: document.getElementById("message").value,
-    };
-
-    emailjs
-        .send("YOUR_SERVICE_ID_HERE", "YOUR_TEMPLATE_ID_HERE", params)
-        .then(() => {
-            alert("Message Sent Successfully!");
-            document.getElementById("contactForm").reset();
-        })
-        .catch((error) => {
-            console.error(error);
-            alert("Failed to send message. Check console for details.");
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
+            .then(() => {
+                alert("Message sent successfully!");
+                form.reset();
+            })
+            .catch((error) => {
+                alert("Something went wrong. Try again.");
+                console.error("EmailJS Error:", error);
+            });
         });
+    }
 });
+
+
+/* ============================================================
+   FADE-IN ANIMATIONS ON SCROLL
+============================================================ */
+const elements = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+});
+
+elements.forEach(el => observer.observe(el));
