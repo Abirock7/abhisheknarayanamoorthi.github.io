@@ -59,7 +59,7 @@ window.closeCert = closeCert;
 /* ================= CONTACT FORM (EmailJS) ================= */
 
 (function () {
-    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+    emailjs.init("JDuXFTC6nyMtcC5RF");
 })();
 
 document.getElementById("contactForm").addEventListener("submit", function (e) {
@@ -71,7 +71,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
         message: document.getElementById("message").value,
     };
 
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+    emailjs.send("service_fupqn7e", "template_qfnpq0u", params)
         .then(() => {
             alert("Message Sent Successfully!");
             document.getElementById("contactForm").reset();
