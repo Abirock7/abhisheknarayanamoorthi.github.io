@@ -1,65 +1,81 @@
-/* ================= PRELOADER ================= */
-
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("preloader").style.opacity = "0";
-        setTimeout(() => {
-            document.getElementById("preloader").style.display = "none";
-        }, 500);
-    }, 1200);
+/* ===========================
+   PARTICLES JS
+   =========================== */
+particlesJS("particles-js", {
+    particles: {
+        number: { value: 85 },
+        size: { value: 3 },
+        color: { value: "#4aa3ff" },
+        line_linked: {
+            enable: true,
+            distance: 140,
+            color: "#4aa3ff",
+            opacity: 0.35,
+            width: 1
+        },
+        move: { speed: 2 }
+    },
+    interactivity: {
+        events: {
+            onhover: { enable: true, mode: "grab" }
+        }
+    }
 });
 
-/* ================= SCROLL ANIMATIONS ================= */
 
-const scrollElements = document.querySelectorAll(".fade-left, .fade-right");
-
-function elementInView(el, offset = 150) {
-    const elementTop = el.getBoundingClientRect().top;
-    return (
-        elementTop <=
-        (window.innerHeight || document.documentElement.clientHeight) - offset
-    );
-}
-
-function displayScrollElement(element) {
-    element.classList.add("show");
-}
-
-function handleScrollAnimation() {
-    scrollElements.forEach((el) => {
-        if (elementInView(el, 100)) {
-            displayScrollElement(el);
-        }
-    });
-}
-
-window.addEventListener("scroll", handleScrollAnimation);
+/* ===========================
+   AOS (Animate On Scroll)
+   =========================== */
+AOS.init({
+    duration: 900,
+    offset: 120,
+    once: true
+});
 
 
-/* ================= CERTIFICATION MODAL ================= */
+/* ===========================
+   NAVBAR SHRINK ON SCROLL
+   =========================== */
+const navbar = document.getElementById("navbar");
 
-function openCert(pdfPath) {
-    const modal = document.getElementById("certModal");
-    const frame = document.getElementById("certFrame");
-    frame.src = pdfPath;
-    modal.style.display = "flex";
-}
-
-function closeCert() {
-    const modal = document.getElementById("certModal");
-    const frame = document.getElementById("certFrame");
-    frame.src = "";
-    modal.style.display = "none";
-}
-
-window.openCert = openCert;
-window.closeCert = closeCert;
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 60) {
+        navbar.classList.add("shrink");
+    } else {
+        navbar.classList.remove("shrink");
+    }
+});
 
 
-/* ================= CONTACT FORM (EmailJS) ================= */
+/* ===========================
+   DARK / LIGHT MODE TOGGLE
+   =========================== */
+const themeToggle = document.getElementById("theme-icon");
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+        themeToggle.classList.remove("ri-moon-fill");
+        themeToggle.classList.add("ri-sun-fill");
+    } else {
+        themeToggle.classList.remove("ri-sun-fill");
+        themeToggle.classList.add("ri-moon-fill");
+    }
+});
+
+
+/* ===========================
+   EMAILJS CONTACT FORM
+   =========================== */
+
+/* You MUST replace the placeholders below: 
+   emailjs.init("YOUR_PUBLIC_KEY");
+   emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+*/
 
 (function () {
-    emailjs.init("JDuXFTC6nyMtcC5RF");
+    emailjs.init("YOUR_PUBLIC_KEY_HERE");  // <-- Replace with YOUR EmailJS Public Key
 })();
 
 document.getElementById("contactForm").addEventListener("submit", function (e) {
@@ -71,40 +87,14 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
         message: document.getElementById("message").value,
     };
 
-    emailjs.send("service_fupqn7e", "template_qfnpq0u", params)
+    emailjs
+        .send("YOUR_SERVICE_ID_HERE", "YOUR_TEMPLATE_ID_HERE", params)
         .then(() => {
             alert("Message Sent Successfully!");
             document.getElementById("contactForm").reset();
-        }, () => {
-            alert("Failed to send message.");
+        })
+        .catch((error) => {
+            console.error(error);
+            alert("Failed to send message. Check console for details.");
         });
-});
-
-
-/* ================= PARTICLES JS ================= */
-
-particlesJS("particles-js", {
-    particles: {
-        number: { value: 85 },
-        size: { value: 3 },
-        color: { value: "#3EA6FF" },
-        line_linked: {
-            enable: true,
-            distance: 140,
-            color: "#3EA6FF",
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            speed: 2
-        }
-    },
-    interactivity: {
-        events: {
-            onhover: {
-                enable: true,
-                mode: "grab"
-            }
-        }
-    }
 });
