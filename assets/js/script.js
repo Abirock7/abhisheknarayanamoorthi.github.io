@@ -1,125 +1,123 @@
-/* ============================================================
-   PRELOADER
-============================================================ */
+/* -----------------------------------
+   1. PRELOADER
+----------------------------------- */
 window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
     setTimeout(() => {
-        const preloader = document.getElementById("preloader");
-        if (preloader) preloader.style.display = "none";
-    }, 2000);
+        preloader.style.opacity = "0";
+        preloader.style.transition = "0.8s";
+        setTimeout(() => preloader.style.display = "none", 500);
+    }, 1200);
 });
 
 
-/* ============================================================
-   NAVBAR SHRINK ON SCROLL
-============================================================ */
-window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (window.scrollY > 50) {
-        header.classList.add("shrink");
-    } else {
-        header.classList.remove("shrink");
-    }
-});
-
-
-/* ============================================================
-   DARK / LIGHT THEME TOGGLE
-============================================================ */
-const themeToggleBtn = document.getElementById("theme-toggle");
-const root = document.body;
-
-if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", () => {
-        root.classList.toggle("light-theme");
-
-        // Change icon
-        if (root.classList.contains("light-theme")) {
-            themeToggleBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-        } else {
-            themeToggleBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-        }
-    });
-}
-
-
-/* ============================================================
-   PARTICLES.JS INITIALIZATION
-============================================================ */
+/* -----------------------------------
+   2. PARTICLES BACKGROUND
+----------------------------------- */
 particlesJS("particles-js", {
     particles: {
-        number: { value: 80 },
-        color: { value: "#6bb6ff" },
+        number: { value: 85 },
+        color: { value: "#86c1ff" },
         shape: { type: "circle" },
-        opacity: { value: 0.5 },
+        opacity: { value: 0.6 },
         size: { value: 3 },
         line_linked: {
             enable: true,
-            color: "#6bb6ff",
-            opacity: 0.3
+            distance: 130,
+            color: "#86c1ff",
+            opacity: 0.4,
+            width: 1
         },
         move: {
             enable: true,
-            speed: 2
+            speed: 1.2
         }
     },
     interactivity: {
+        detect_on: "canvas",
         events: {
-            onhover: { enable: true, mode: "repulse" }
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+            repulse: { distance: 100 },
+            push: { particles_nb: 4 }
         }
+    },
+    retina_detect: true
+});
+
+
+/* -----------------------------------
+   3. DARK/LIGHT THEME TOGGLE
+----------------------------------- */
+const toggleBtn = document.getElementById("theme-toggle");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-theme");
+
+    if (document.body.classList.contains("light-theme")) {
+        toggleBtn.innerHTML = "🌙";
+        localStorage.setItem("theme", "light");
+    } else {
+        toggleBtn.innerHTML = "☀️";
+        localStorage.setItem("theme", "dark");
+    }
+});
+
+// Load saved theme
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-theme");
+    toggleBtn.innerHTML = "🌙";
+}
+
+
+/* -----------------------------------
+   4. NAVBAR SHRINK ON SCROLL
+----------------------------------- */
+const navbar = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+        navbar.style.padding = "10px 50px";
+        navbar.style.background = "rgba(10,14,23,0.95)";
+    } else {
+        navbar.style.padding = "18px 60px";
+        navbar.style.background = "rgba(10,14,23,0.7)";
     }
 });
 
 
-/* ============================================================
-   EMAILJS CONTACT FORM HANDLER
-============================================================ */
+/* -----------------------------------
+   5. AOS ANIMATION INITIALIZATION
+----------------------------------- */
+AOS.init({
+    duration: 900,
+    once: true
+});
 
-// Replace with your actual IDs
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 
-emailjs.init(EMAILJS_PUBLIC_KEY);
+/* -----------------------------------
+   6. EMAILJS CONTACT FORM
+----------------------------------- */
+(function () {
+    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your key
+})();
 
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm");
+document.getElementById("contact-form")?.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const formData = {
-                from_name: document.getElementById("name").value,
-                from_email: document.getElementById("email").value,
-                subject: document.getElementById("subject").value,
-                message: document.getElementById("message").value
-            };
-
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
-            .then(() => {
-                alert("Message sent successfully!");
-                form.reset();
-            })
-            .catch((error) => {
-                alert("Something went wrong. Try again.");
-                console.error("EmailJS Error:", error);
-            });
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        from_name: document.getElementById("name").value,
+        from_email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+    })
+        .then(() => {
+            alert("Message sent successfully!");
+            e.target.reset();
+        })
+        .catch(() => {
+            alert("Failed to send message. Check EmailJS configuration.");
         });
-    }
 });
-
-
-/* ============================================================
-   FADE-IN ANIMATIONS ON SCROLL
-============================================================ */
-const elements = document.querySelectorAll(".fade-in");
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-});
-
-elements.forEach(el => observer.observe(el));
