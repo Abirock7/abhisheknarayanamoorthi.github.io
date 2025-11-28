@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abishek Narayanamoorthi | Cybersecurity Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+
 </head>
 
 <body>
@@ -12,101 +19,237 @@
 <!-- PARTICLES BACKGROUND -->
 <div id="particles-js"></div>
 
-<!-- NAVIGATION -->
-<header>
+<!-- HEADER -->
+<header id="navbar">
     <div class="logo">Abishek</div>
+
     <nav>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#timeline">Timeline</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
+    <!-- DARK/LIGHT MODE TOGGLE -->
+    <div class="theme-toggle">
+        <i class="ri-moon-fill" id="theme-icon"></i>
+    </div>
 </header>
 
+
 <!-- HERO SECTION -->
-<section id="home" class="hero">
+<section id="home" class="hero" data-aos="fade-up">
     <img src="assets/PROFILE.jpg" class="avatar" />
 
-    <h1>Hi, I'm <span class="highlight">Abishek Narayanamoorthi</span></h1>
-    <h2>Aspiring Cybersecurity Engineer • SOC Analyst & Threat Hunter</h2>
+    <h1>Hi, I'm <span class="highlight">Abishek</span></h1>
+    <h2>Cybersecurity Analyst • Threat Detection • Blue-Team Defense & Automation</h2>
 
     <p class="subtitle">
-        Blue-Team Defense • Threat Detection • DFIR • AI Security Automation
+        SOC Operations • SIEM • DFIR • Threat Hunting • AI Security Tools
     </p>
 
     <div class="hero-buttons">
-        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#projects" class="btn-primary">View My Projects</a>
         <a href="assets/resume.pdf" class="btn-secondary" download>Download Resume</a>
     </div>
 
     <div class="social-icons">
-        <a href="http://www.linkedin.com/in/abishek-narayanamoorthi-baa59b1aa" target="_blank">LinkedIn</a>
-        <a href="https://medium.com/@abishekmoorthi711" target="_blank">Medium</a>
-        <a href="https://github.com/Abirock7/ai-triage" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/abishek-narayanamoorthi-baa59b1aa" target="_blank">
+            <i class="ri-linkedin-box-fill"></i>
+        </a>
+        <a href="https://medium.com/@abishekmoorthi711" target="_blank">
+            <i class="ri-article-fill"></i>
+        </a>
+        <a href="https://github.com/Abirock7" target="_blank">
+            <i class="ri-github-fill"></i>
+        </a>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section" data-aos="fade-left">
     <h2 class="section-title">About Me</h2>
+
     <p>
-        I am a cybersecurity graduate student at Saint Louis University with hands-on experience in
-        SOC operations, threat detection, network security, and AI-driven automation. I specialize in
-        identifying malicious behavior using SIEM tools, analyzing attack patterns, and designing
-        automations that improve detection accuracy and response speed.
+        I am a cybersecurity graduate student at Saint Louis University specializing in 
+        blue-team operations, SOC analysis, threat detection, and AI-driven automation.
+        My work includes designing SIEM detections, performing DFIR investigations, 
+        researching AI-assisted triage, and improving threat visibility for enterprise environments.
+    </p>
+
+    <p>
+        I enjoy solving complex security problems, competing in CTF challenges, 
+        and building tools that enhance detection accuracy and reduce response time.
     </p>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section">
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="section" data-aos="fade-right">
     <h2 class="section-title">Skills</h2>
-    <ul class="skills-list">
-        <li>Security Operations (SOC)</li>
-        <li>SIEM – Splunk & Elastic</li>
-        <li>Threat Detection & MITRE ATT&CK</li>
-        <li>DFIR</li>
-        <li>Python Automation</li>
-        <li>AI-Driven Security Tools</li>
-    </ul>
+
+    <div class="skills-container">
+        <div class="skill-bar">
+            <span>SOC Operations</span>
+            <div class="bar neon"></div>
+        </div>
+
+        <div class="skill-bar">
+            <span>Threat Detection & Hunting</span>
+            <div class="bar neon"></div>
+        </div>
+
+        <div class="skill-bar">
+            <span>Splunk / Elastic SIEM</span>
+            <div class="bar neon"></div>
+        </div>
+
+        <div class="skill-bar">
+            <span>DFIR & Log Analysis</span>
+            <div class="bar neon"></div>
+        </div>
+
+        <div class="skill-bar">
+            <span>Python Automation</span>
+            <div class="bar neon"></div>
+        </div>
+
+        <div class="skill-bar">
+            <span>AI-Driven Security Tools</span>
+            <div class="bar neon"></div>
+        </div>
+    </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section">
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="section" data-aos="fade-left">
     <h2 class="section-title">Projects</h2>
 
     <div class="project-card">
         <h3>AI One-Click Security Triage Tool</h3>
-        <p>Nmap → JSON Parsing → AI CVSS Scoring → Dashboard (Python + Docker + LLM)</p>
-        <a href="https://github.com/Abirock7/ai-triage" target="_blank" class="btn-secondary">
-            View Project
-        </a>
+        <p>
+            Automated pipeline: Nmap → XML Parser → SQLite → CVSS Scoring → LLM Analysis → Dashboard.
+        </p>
+        <a href="https://github.com/Abirock7/ai-triage" class="btn-secondary" target="_blank">GitHub Repo</a>
     </div>
 
     <div class="project-card">
         <h3>NCL / CTF Writeups</h3>
-        <p>Challenges in Web, OSINT, Crypto, DFIR, Log Analysis.</p>
-        <a href="https://medium.com/@abishekmoorthi711" target="_blank" class="btn-secondary">
-            Read on Medium
-        </a>
+        <p>Web, OSINT, Forensics, DFIR, Crypto, Stego & Log Analysis writeups.</p>
+        <a href="https://medium.com/@abishekmoorthi711" class="btn-secondary" target="_blank">Read on Medium</a>
     </div>
 
     <div class="project-card">
         <h3>Splunk Detection Engineering</h3>
-        <p>Custom SIEM queries for malware, C2 beaconing, privilege escalation, and lateral movement.</p>
+        <p>Detection rules for malware, persistence, C2 beaconing, privilege escalation & lateral movement.</p>
     </div>
-
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h2 class="section-title">Contact Me</h2>
-    <p>Email: <strong>abishekmoorthi711@gmail.com</strong></p>
+
+<!-- CERTIFICATIONS SECTION -->
+<section id="certifications" class="section" data-aos="fade-right">
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="cert-grid">
+
+        <div class="cert-card">
+            <h3>Google Cybersecurity Certificate</h3>
+            <a href="certifications/google cybersecurity professional.pdf" target="_blank">
+                <button class="btn-secondary">View Certificate</button>
+            </a>
+        </div>
+
+        <div class="cert-card">
+            <h3>Google Cybersecurity Badge</h3>
+            <a href="certifications/GoogleCybersecurityCertificateV2_Badge20250316-26-v1jor9.pdf" target="_blank">
+                <button class="btn-secondary">View Badge</button>
+            </a>
+        </div>
+
+        <div class="cert-card">
+            <h3>Google Data Analytics Badge</h3>
+            <a href="certifications/GoogleDataAnalyticsProfessionalCertificate_Badge.pdf" target="_blank">
+                <button class="btn-secondary">View Badge</button>
+            </a>
+        </div>
+
+        <div class="cert-card">
+            <h3>TryHackMe Certificate 1</h3>
+            <a href="certifications/tryhackme1.pdf" target="_blank">
+                <button class="btn-secondary">View Certificate</button>
+            </a>
+        </div>
+
+        <div class="cert-card">
+            <h3>TryHackMe Certificate 2</h3>
+            <a href="certifications/tryhackme2.pdf" target="_blank">
+                <button class="btn-secondary">View Certificate</button>
+            </a>
+        </div>
+
+    </div>
 </section>
 
+
+<!-- TIMELINE SECTION -->
+<section id="timeline" class="section" data-aos="fade-left">
+    <h2 class="section-title">My Journey</h2>
+
+    <div class="timeline">
+        <div class="timeline-step">
+            <span class="step-icon">🎓</span>
+            <p>Master’s in Cybersecurity – Saint Louis University</p>
+        </div>
+
+        <div class="timeline-step">
+            <span class="step-icon">🛡️</span>
+            <p>Hands-on SOC Labs, SIEM, DFIR, Threat Hunting</p>
+        </div>
+
+        <div class="timeline-step">
+            <span class="step-icon">🤖</span>
+            <p>Built AI One-Click Triage Tool</p>
+        </div>
+
+        <div class="timeline-step">
+            <span class="step-icon">🏆</span>
+            <p>NCL & CTF Competitor — Web, DFIR, OSINT, Crypto</p>
+        </div>
+
+        <div class="timeline-step">
+            <span class="step-icon">🚀</span>
+            <p>Building career in SOC & Detection Engineering</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="section" data-aos="fade-right">
+    <h2 class="section-title">Contact</h2>
+
+    <p><strong>Email:</strong> abisheknarayanamoorthi0218@gmail.com</p>
+    <p><strong>Phone:</strong> +1 (xxx) xxx-xxxx</p>
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+</section>
+
+
+<!-- SCRIPTS -->
 <script src="particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="script.js"></script>
 
 </body>
